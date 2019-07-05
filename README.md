@@ -1,4 +1,4 @@
-# java_practice_programming
+# Basic Java
 
 ## Purpose
 
