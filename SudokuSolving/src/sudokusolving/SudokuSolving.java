@@ -26,6 +26,30 @@ public class SudokuSolving {
         {0, 9, 0, 0, 0, 0, 4, 0, 0}
     };
 
+    public static int[][] GRID_TO_SOLVE_2 = {
+        {5, 3, 0, 0, 7, 0, 0, 0, 0},
+        {6, 0, 0, 1, 9, 5, 0, 0, 0},
+        {0, 9, 8, 0, 0, 0, 0, 6, 0},
+        {8, 0, 0, 0, 6, 0, 0, 0, 3},
+        {4, 0, 0, 8, 0, 3, 0, 0, 1},
+        {7, 0, 0, 0, 2, 0, 0, 0, 6},
+        {0, 6, 0, 0, 0, 0, 2, 8, 0},
+        {0, 0, 0, 4, 1, 9, 0, 0, 5},
+        {0, 0, 0, 0, 8, 0, 0, 7, 9}
+    };
+
+    public static int[][] GRID_TO_SOLVE_3  = {
+        {5, 3, 0, 0, 7, 0, 0, 0, 0},
+        {6, 0, 0, 1, 9, 5, 0, 0, 0},
+        {0, 9, 8, 0, 0, 0, 0, 6, 0},
+        {8, 0, 0, 0, 6, 0, 0, 0, 3},
+        {4, 0, 0, 8, 0, 3, 0, 0, 1},
+        {7, 0, 0, 0, 2, 0, 0, 0, 6},
+        {0, 6, 0, 0, 0, 0, 2, 8, 0},
+        {0, 0, 0, 4, 1, 9, 0, 0, 5},
+        {0, 0, 0, 0, 8, 0, 0, 7, 9}
+    };
+
     private int board[][];
     public static final int EMPTY = 0;
     public static final int SIZE = 9;
@@ -59,11 +83,11 @@ public class SudokuSolving {
     }
 
     public boolean isInBox(int row, int col, int num) {
-        int r = row - row % 3;
-        int c = col - col % 3;
+        int r = row - row % 3; //8-8%3 = 8-2 = 6 , 5-5%3 = 5-2 = 3
+        int c = col - col % 3; //1-1%3 = 1-1 = 0 , 
 
-        for (int i = r; i < r + 3; i++) {
-            for (int j = c; j < c + 3; j++) {
+        for (int i = r; i < r + 3; i++) { //( i = 6 ; 6 < 9 ; 6++)
+            for (int j = c; j < c + 3; j++) { //(j = 0 ; j < 3 ; 
                 if (board[i][j] == num) {
                     return true;
                 }
@@ -119,10 +143,10 @@ public class SudokuSolving {
     }
 
     public static void main(String[] args) {
-        SudokuSolving sudokuSolving = new SudokuSolving(GRID_TO_SOLVE);
+        SudokuSolving sudokuSolving = new SudokuSolving(GRID_TO_SOLVE_2);
         sudokuSolving.display();
         System.out.println();
-        
+
         if (sudokuSolving.solve()) {
             System.out.println("Sudoku solved");
             sudokuSolving.display();
