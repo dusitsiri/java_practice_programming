@@ -24,12 +24,21 @@ public class Number {
     }
 
     public void SelectionSort() {
-        int temp = 0;
-        for (int i = 0; i < size; i++) {
-            for (int j = 1; j < size; j++) {
-                
+        String temp = "";
+        for (int i = 1; i < size; i++) {
+            if (Integer.parseInt(number[i-1]) > Integer.parseInt(number[i])) {
+                temp = number[i-1];
+                number[i-1] = number[i];
+                number[i] = temp;
             }
         }
+    }
+    
+    public void display(){
+        for (int i = 0; i < size; i++) {
+            System.out.print(number[i]+" ");
+        }
+        System.out.println();
     }
 
 }
